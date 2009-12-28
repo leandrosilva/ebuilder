@@ -10,7 +10,7 @@ Install the ebuilder gem:
 
 == Usage
 
-Type:
+At project's root directory, type:
 
   ebuilder compile
 
