@@ -1,4 +1,4 @@
-= Ebuilder
+= ebuilder
 
 Simple tool for building Erlang/OTP projects.
 
