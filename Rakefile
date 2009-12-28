@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "ebuilder"
-    gem.summary = %Q{Simple builer tool for Erlang/OTP projects}
+    gem.summary = %Q{Simple tool for building Erlang/OTP projects}
     gem.email = "leandrodoze@gmail.com"
     gem.homepage = "http://github.com/leandrosilva/ebuilder"
     gem.authors = ["Leandro Silva"]

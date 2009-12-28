@@ -1,6 +1,6 @@
-= otp_kickoff
+= Ebuilder
 
-Simple builder tool for Erlang/OTP projects.
+Simple tool for building Erlang/OTP projects.
 
 == Install and configuration
 
