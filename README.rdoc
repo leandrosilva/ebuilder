@@ -18,7 +18,7 @@ That will compile all source files from src and test directories, put output on 
 
 == Next
 
-	ebuilder test MODULE
+  ebuilder test MODULE
 	
 That will run all tests specified for MODULE.
 
