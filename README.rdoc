@@ -1,0 +1,33 @@
+= otp_kickoff
+
+Simple builder tool for Erlang/OTP projects.
+
+== Install and configuration
+
+Install the ebuilder gem:
+
+  sudo gem install ebuilder -s http://gemcutter.org
+
+== Usage
+
+Type:
+
+  ebuilder compile
+
+That will compile all source files from src and test directories, put output on ebin directory and generate all edoc HTML files.
+
+== Next
+
+	ebuilder test MODULE
+	
+That will run all tests specified for MODULE.
+
+== Help
+
+If you need some help, type:
+
+  ebuilder help
+
+== Copyright
+
+Copyright (c) 2009 Leandro Silva. See LICENSE for details.
