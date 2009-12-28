@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "bin/ebuilder",
+     "ebuilder.gemspec",
      "lib/ebuilder.rb",
      "spec/ebuilder_spec.rb",
      "spec/spec_helper.rb"
