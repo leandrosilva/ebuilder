@@ -10,13 +10,15 @@ Install the ebuilder gem:
 
 == Usage
 
-At project's root directory, type:
+At the root directory of your Erlang/OTP project, type:
 
   ebuilder compile
 
 That will compile all source files from src and test directories, put output on ebin directory and generate all edoc HTML files.
 
 == Next
+
+Yet on root directory, type:
 
   ebuilder test MODULE
 	
