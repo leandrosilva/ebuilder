@@ -37,7 +37,8 @@ class Ebuilder < Thor
   
 	desc 'clean', 'clean ebin directory'
 	def clean
-		`rm -rf ebin/*`
+		rm_output = `rm -rf ebin/*`
+		puts rm_output unless rm_output.empty?
 	end
 
   # task: compile
@@ -46,8 +47,11 @@ class Ebuilder < Thor
 	def compile
 		clean
 		
-		`erlc -o ebin/ -I include/ src/*.erl test/*.erl`
-		`cp src/*.app ebin/`
+		erlc_output = `erlc -o ebin/ -I include/ src/*.erl test/*.erl`
+		puts erlc_output unless erlc_output.empty?
+		
+		cp_output = `cp src/*.app ebin/`
+		puts cp_output unless cp_output.empty?
 	end
 	
   # task: doc
@@ -55,22 +59,27 @@ class Ebuilder < Thor
 	desc 'doc', 'generate edoc for all modules'
 	def doc
 		Dir.glob(File.expand_path('src/*.erl')).each do |filename|
-			`erl -noshell -run edoc file src/#{File.basename(filename)} -run init stop`
+			erl_output = `erl -noshell -run edoc file src/#{File.basename(filename)} -run init stop`
+			puts erl_output unless erl_output.empty?
 		end
 
-		`mv src/*.html doc/`
+		mv_output = `mv src/*.html doc/`
+		puts mv_output unless mv_output.empty?
 
 		Dir.glob(File.expand_path('test/*.erl')).each do |filename|
-			`erl -noshell -run edoc file test/#{File.basename(filename)} -run init stop`
+			erl_output = `erl -noshell -run edoc file test/#{File.basename(filename)} -run init stop`
+			puts erl_output unless erl_output.empty?
 		end
 		
-		`mv test/*.html doc/`
+		mv_output = `mv test/*.html doc/`
+		puts mv_output unless mv_output.empty?
 	end
 	
   # task: test
   
 	desc 'test', 'run a EUnit tests'
 	def test(name)
-		puts `erl -pa ebin/ -noshell -run #{name} test -run init stop`
+		erl_output = `erl -pa ebin/ -noshell -run #{name} test -run init stop`
+		puts erl_output unless erl_output.empty?
 	end
 end
