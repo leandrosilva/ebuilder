@@ -78,8 +78,15 @@ class Ebuilder < Thor
   # task: test
   
 	desc 'test', 'run a EUnit tests'
+  method_option :application, :type => :string, :required => false, :aliases => "-a"
+  method_option :dependencies, :type => :boolean, :required => false, :aliases => "-d"
+  method_option :mnesia, :type => :boolean, :required => false, :aliases => "-m"
 	def test(name)
-		erl_output = `erl -pa ebin/ -noshell -run #{name} test -run init stop`
+	  application = "-s #{options.application}" if options.application
+	  dependencies = "deps/*/ebin/" if options.dependencies?
+	  mnesia = "-mnesia dir '\"db/dev\"'" if options.mnesia?
+	  
+		erl_output = `erl -pa ebin/ #{dependencies} #{application} #{mnesia} -run #{name} test -run init stop`
 		puts erl_output unless erl_output.empty?
 	end
 end
