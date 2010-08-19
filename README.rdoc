@@ -22,7 +22,11 @@ Yet on root directory, type:
 
   ebuilder test MODULE
 	
-That will run all tests specified for MODULE.
+That will run all tests specified for MODULE. However it's not all. It have some other options:
+
+  -a [APPLICATION]   # specify your OTP application name
+  -d                 # it will include deps directory
+  -m                 # it will setup mnesia to db/dev directory
 
 == Help
 
