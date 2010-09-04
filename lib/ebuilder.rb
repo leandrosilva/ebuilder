@@ -86,7 +86,7 @@ class Ebuilder < Thor
     dependencies = "deps/*/ebin/" if options.dependencies?
     mnesia = "-mnesia dir '\"db/dev\"'" if options.mnesia?
     
-    erl_output = `erl -pa ebin/ #{dependencies} #{application} #{mnesia} -run #{name} test -run init stop`
+    erl_output = `erl -noshell -pa ebin/ #{dependencies} #{application} #{mnesia} -run #{name} test -run init stop`
     puts erl_output unless erl_output.empty?
   end
 end
